@@ -2,7 +2,7 @@ class TabLink {
   constructor(tabElement){
     // assign this.tabElement to the tabElement DOM reference
      this.tabElement = tabElement;
-    
+   
     // Get the `data-tab` value from this.tabElement and store it here
     this.tabData = this.tabElement.dataset.tab; 
     //console.log(this.tabData);
@@ -70,3 +70,4 @@ class TabCard {
 
 */
 let tabs = document.querySelectorAll('.tab').forEach(tab => new TabLink(tab));
+console.log('tabs', tabs)
