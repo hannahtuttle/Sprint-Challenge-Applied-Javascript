@@ -1,9 +1,30 @@
 class Carousel {
      constructor(carElement){
         this.carElement = carElement;
-        console.log('this.element', this.carElement)
+        //console.log('this.element', this.carElement)
         this.leftButton = this.carElement.querySelector('.left-button')
-        console.log('this.leftButton', this.leftButton)
+        //console.log('this.leftButton', this.leftButton)
+        this.rightButton = this.carElement.querySelector('.right-button')
+       // console.log('this.rightButton',this.rightButton)
+        this.img = this.carElement.querySelectorAll(`img`)
+        console.log('this.img', this.img)
+        this.index = Array.from(this.img).map(img => new Images(img))
+        console.log(this.index)
+        this.leftButton.addEventListener('click', () => this.selectButton())
+        this.rightButton.addEventListener('click', () => this.selectButton())
+
+    }
+    selectButton(){
+        this.index.map(img => img.selectImg())
+    }
+}
+
+class Images {
+    constructor(imgElement){
+        this.imgElement = imgElement
+    }
+    selectImg(){
+        this.imgElement.style.display = 'block'
     }
 }
 
